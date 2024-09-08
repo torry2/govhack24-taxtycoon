@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { next } from '@/utils/functions.js';
+
 export default {
   props: {
     options: {
@@ -16,7 +18,7 @@ export default {
   },
   methods: {
     selectAnswer(option) {
-      alert(option);
+      next(option);
     }
   }
 };

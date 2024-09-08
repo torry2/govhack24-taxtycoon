@@ -4,17 +4,26 @@ import Question from './components/question.vue';
 import Answers from './components/answers.vue';
 //import Result from './components/result.vue';
 
-const question = 'This is a Tax Related Question';
-const answerOptions = ['Answer A', 'Answer B', 'Answer C', 'Answer D', 'Answer E'];
+import * as values from '@/utils/correct.js';
+import * as p from '@/utils/functions.js';
+
+import {ref, watch} from 'vue';
+let progress = ref(1);
+let { question, answers, correct } = values.quiz[progress.value - 1]
+
+watch(progress, (newVal, oldVal, cleanup) => {
+  progress.value = p.progress;
+});
+
 </script>
 
 <template>
   <header>
-    <ProgressBar :progress="3"/>
+    <ProgressBar :progress="progress"/>
   </header>
   <div class="quiz">
     <Question :questionText="question" />
-    <Answers :options="answerOptions" />    
+    <Answers :options="answers" />    
   </div>
 </template>
 
