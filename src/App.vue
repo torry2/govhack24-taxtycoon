@@ -6,11 +6,12 @@ import Answers from './components/answers.vue';
 
 const question = 'This is a Tax Related Question';
 const answerOptions = ['Answer A', 'Answer B', 'Answer C', 'Answer D', 'Answer E'];
+let progress = 1;
 </script>
 
 <template>
   <header>
-    <ProgressBar :progress="3"/>
+    <ProgressBar :progress="progress"/>
   </header>
   <div class="quiz">
     <Question :questionText="question" />
