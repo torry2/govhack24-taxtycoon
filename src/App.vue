@@ -5,9 +5,8 @@ import Answers from './components/answers.vue';
 
 import * as values from '@/utils/correct.js';
 
-import {ref, watch} from 'vue';
+import { ref } from 'vue';
 let progress = ref(1);
-let { question, answers, correct } = values.quiz[progress.value - 1]
 
 const incrementProgress = () => {
   progress.value++;
@@ -29,10 +28,10 @@ function languageClick() {
   <main>
     <div class="quiz">
       <div class="question">
-        <Question :questionText="question" />
+        <Question :questionText="values.quiz[progress-1].question" />
       </div>
       <div class="answers">
-        <Answers :options="answers" :progress="progress" @increment="incrementProgress" />
+        <Answers :options="values.quiz[progress-1].answers" :progress="progress" @increment="incrementProgress" />
       </div>
     </div>
   </main>

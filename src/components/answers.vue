@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import * as values from '@/utils/correct.js';
+
 export default {
   props: {
     options: {
@@ -34,7 +36,7 @@ export default {
   },
   methods: {
     async selectAnswer(option) {
-      if (option == "Answer " + ["A","C","B","E","D"][this.progress-1]) {
+      if (option == values.quiz[this.progress-1].correct) {
         this.resultCode = 1;
       } else {
         this.resultCode = 2;
