@@ -35,6 +35,6 @@ defineProps({
 }
 
 .progress-rect.active {
-  background-color: #4caf50;
+  background-color: #8cc53f;
 }
 </style>

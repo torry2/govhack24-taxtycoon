@@ -18,14 +18,14 @@ export default {
 <style scoped>
 
 .question-text {
-    color: black;
+    color: #202020;
+    font-size: 20px;
 }
 .question-box {
   padding: 20px;
-  border: 1px solid #000000;
   background-color: #ffffff;
   border-radius: 5px;
-  width: 200px;
+  width: 100%;
   text-align: center;
 }
 </style>

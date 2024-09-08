@@ -27,6 +27,7 @@ export default {
 <style scoped>
 .answers-box {
   display: flex;
+  width: 40%;
   flex-direction: column;
   gap: 10px;
 }
@@ -35,12 +36,18 @@ export default {
   padding: 10px;
   background-color: #ffffff;
   color: black;
-  border: none;
+  border: 2px solid #e5e5e5;
+  border-bottom: 3px solid #e5e5e5;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  color: #202020;
 }
 
 .answer-button:hover {
-  background-color: #ababab;
+  border: 2px solid #d6d6d6;
+  border-bottom: 3px solid #d6d6d6;
+  background-color: #efefef;
 }
 </style>

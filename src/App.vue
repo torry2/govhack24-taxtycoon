@@ -19,16 +19,50 @@ watch(progress, (newVal, oldVal, cleanup) => {
 
 <template>
   <header>
+    <div class="title-bar">
+      <img id="logo" src="/logo.png"/>
+    </div>
     <ProgressBar :progress="progress"/>
   </header>
-  <div class="quiz">
-    <Question :questionText="question" />
-    <Answers :options="answers" />    
-  </div>
+  <main>
+    <div class="quiz">
+      <div class="question">
+        <Question :questionText="question" />
+      </div>
+      <div class="answers">
+        <Answers :options="answers" />
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
 .header {
   width: 100%;
+}
+
+.title-bar {
+  border-bottom: 2px solid #e5e5e5;
+  display: flex;
+  justify-content: center;
+}
+
+#logo {
+  height: 70px;
+  margin: 10px 0 5px 0;
+}
+
+.quiz {
+  margin: 10px 20px;
+}
+
+.question {
+  padding: 0 0 15px 0;
+}
+
+.answers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
