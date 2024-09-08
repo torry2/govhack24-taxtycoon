@@ -2,12 +2,10 @@
 import ProgressBar from './components/ProgressBar.vue'
 import Question from './components/question.vue';
 import Answers from './components/answers.vue';
-import Result from './components/result.vue';
+//import Result from './components/result.vue';
 
-export const App = {
-  question: 'This is a Tax Related Question',
-  answerOptions: ['Answer A', 'Answer B', 'Answer C', 'Answer D', 'Answer E']
-}
+const question = 'This is a Tax Related Question';
+const answerOptions = ['Answer A', 'Answer B', 'Answer C', 'Answer D', 'Answer E'];
 </script>
 
 <template>
