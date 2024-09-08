@@ -1,8 +1,7 @@
 <script setup>
-import ProgressBar from './components/ProgressBar.vue'
+import ProgressBar from './components/ProgressBar.vue';
 import Question from './components/question.vue';
 import Answers from './components/answers.vue';
-//import Result from './components/result.vue';
 
 import * as values from '@/utils/correct.js';
 
@@ -15,6 +14,9 @@ const incrementProgress = () => {
   progress.value = ((progress.value - 1) % 5) + 1;
 };
 
+function languageClick() {
+  alert("AI Translation: Coming Soon!");
+}
 </script>
 
 <template>
@@ -34,6 +36,9 @@ const incrementProgress = () => {
       </div>
     </div>
   </main>
+  <footer>
+    <img class="clickable-image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-1/254000/18-1024.png" @click="languageClick"/>
+  </footer>
 </template>
 
 <style scoped>
@@ -64,5 +69,16 @@ const incrementProgress = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.clickable-image {
+  height: 70px; 
+  cursor: pointer;
 }
 </style>
