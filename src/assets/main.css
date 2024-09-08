@@ -3,4 +3,6 @@
 #app {
   margin: 0 auto;
   font-weight: normal;
+  background-color: #ffffff;
+  height: 100vh;
 }
