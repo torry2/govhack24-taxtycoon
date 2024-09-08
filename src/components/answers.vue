@@ -1,24 +1,50 @@
 <template>
   <div class="answers-box">
-    <button v-for="(option, index) in options" :key="index" class="answer-button" @click="selectAnswer(option)">
+    <button v-for="(option, index) in options" :key="index" class="answer-button" :class="score" @click="selectAnswer(option)">
       {{ option }}
     </button>
   </div>
 </template>
 
 <script>
-import { next } from '@/utils/functions.js';
-
 export default {
   props: {
     options: {
       type: Array,
       required: true
+    },
+    progress: {
+      type: Number,
+      required: true
+    }
+  },
+  data() {
+    return {
+      resultCode: 0
+    };
+  },
+  computed: {
+    score() {
+      return {
+        '': this.resultCode === 0,
+        'correct': this.resultCode === 1,
+        'wrong': this.resultCode === 2
+      };
     }
   },
   methods: {
-    selectAnswer(option) {
-      next(option);
+    async selectAnswer(option) {
+      if (option == "Answer " + ["A","C","B","E","D"][this.progress-1]) {
+        this.resultCode = 1;
+      } else {
+        this.resultCode = 2;
+      }
+      await this.sleep(1000);
+      this.resultCode = 0;
+      this.$emit('increment');
+    },
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));      
     }
   }
 };
@@ -49,5 +75,13 @@ export default {
   border: 2px solid #d6d6d6;
   border-bottom: 3px solid #d6d6d6;
   background-color: #efefef;
+}
+
+.correct {
+  border-color: #8cc53f !important;
+}
+
+.wrong {
+  border-color: #ff4b4b !important;
 }
 </style>

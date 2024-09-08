@@ -5,15 +5,15 @@ import Answers from './components/answers.vue';
 //import Result from './components/result.vue';
 
 import * as values from '@/utils/correct.js';
-import * as p from '@/utils/functions.js';
 
 import {ref, watch} from 'vue';
 let progress = ref(1);
 let { question, answers, correct } = values.quiz[progress.value - 1]
 
-watch(progress, (newVal, oldVal, cleanup) => {
-  progress.value = p.progress;
-});
+const incrementProgress = () => {
+  progress.value++;
+  progress.value = ((progress.value - 1) % 5) + 1;
+};
 
 </script>
 
@@ -30,7 +30,7 @@ watch(progress, (newVal, oldVal, cleanup) => {
         <Question :questionText="question" />
       </div>
       <div class="answers">
-        <Answers :options="answers" />
+        <Answers :options="answers" :progress="progress" @increment="incrementProgress" />
       </div>
     </div>
   </main>
